@@ -4,7 +4,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const ESLintPlugin = require("eslint-webpack-plugin"); // Importez ESLintPlugin
 
 module.exports = {
-  entry: "./src/index.ts",
+  entry: path.resolve(__dirname, "src/index.ts"),
   module: {
     rules: [
       {
@@ -28,13 +28,13 @@ module.exports = {
     extensions: [".tsx", ".ts", ".js"],
   },
   output: {
-    filename: "bundle.js",
     path: path.resolve(__dirname, "dist"),
+    filename: "[name].bundle.js",
   },
 
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.join(__dirname, "./src/index.html"),
+      template: path.join(__dirname, "src/index.html"),
     }),
     new MiniCssExtractPlugin({
       filename: "output.css",
@@ -48,5 +48,9 @@ module.exports = {
     open: false,
     static: path.resolve(__dirname, "./dist"),
     port: 4000,
+    hot: true,
+    // headers: {
+    //   "Content-Type": "application/javascript",
+    // },
   },
 };

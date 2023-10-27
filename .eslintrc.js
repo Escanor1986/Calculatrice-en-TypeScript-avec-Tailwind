@@ -10,6 +10,7 @@ module.exports = {
     sourceType: "module", // Indique que votre code utilise les modules (ES6)
   },
   rules: {
-    // Personnalisez les règles ici selon vos préférences
+    "no-unused-vars": "error", // Signale les variables déclarées mais non utilisées en rouge.
+    "prefer-const": "error", // Suggère l'utilisation de const au lieu de let lorsque cela est possible.
   },
 };
