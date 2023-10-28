@@ -1,41 +1,56 @@
 import "./style/style.css";
 
-export function narcissistic(value: number): boolean {
-  // your code here
-  const str: string = value.toString();
-  const strLength: number = str.split("").length;
-  let total: number = 0;
+let cadran = document.getElementById("cadran") as HTMLInputElement; // Valeur affichée sur le cadran
+const allButton = document.querySelectorAll("button");
+const resetCadran = document.getElementById("reset");
 
-  for (let i: number = 0; i < strLength; i++) {
-    const result: number = Math.pow(parseInt(str[i]), strLength);
-    total += result;
-  }
+const reset = () => {
+  resetCadran.addEventListener("click", (event) => {
+    event.preventDefault;
+    cadran.value = "";
+  });
+};
 
-  return total === value;
-}
+const allValue = () => {
+  allButton.forEach((element: HTMLElement) => {
+    element.addEventListener("click", (event) => {
+      event.preventDefault;
+      switch (element.id) {
+        case "zero":
+          cadran.value += "0";
+          break;
+        case "one":
+          cadran.value += "1";
+          break;
+        case "two":
+          cadran.value += "2";
+          break;
+        case "three":
+          cadran.value += "3";
+          break;
+        case "four":
+          cadran.value += "4";
+          break;
+        case "five":
+          cadran.value += "5";
+          break;
+        case "six":
+          cadran.value += "6";
+          break;
+        case "seven":
+          cadran.value += "7";
+          break;
+        case "eight":
+          cadran.value += "8";
+          break;
+        case "nine":
+          cadran.value += "9";
+          break;
+      }
+    });
+  });
+};
 
-console.log(narcissistic(153));
-console.log(narcissistic(1634));
-
-const a: string = "Test";
-const b: string = "Test b";
-
-console.log(a, b);
-
-abstract class Personne {
-  constructor(public genre: string) {}
-}
-
-// Je définies explicitement un type aux constantes firstName et age
-const firstName: string = "Thomas";
-let age: number = 34;
-
-// Je laisse TypeScript s'occuper de la déclaration du type pour moi
-const lastName = "Dimnet";
-let postCode = 75020;
-
-// Je définis un type plus "complexe"
-const friends: string[] = ["Alex", "Karl", "Ashley"];
-const friendsAge: number[] = [31, 33, 29];
-
-console.log(friends);
+allValue();
+reset();
+// function getValue()
