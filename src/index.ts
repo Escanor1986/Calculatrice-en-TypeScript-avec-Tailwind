@@ -1,8 +1,10 @@
 import "./style/style.css";
 
+// Diviser la logique valeur vs operation
+
 let cadran = document.getElementById("cadran") as HTMLInputElement; // Valeur affichée sur le cadran
 const allButton = document.querySelectorAll("button");
-const equal = document.getElementById("equal") as HTMLElement;
+const equal = document.getElementById("equal");
 
 // Factorial Logic
 function factorial(n: number): number {
@@ -31,30 +33,52 @@ function changeSign(str: string): void {
   }
 }
 
-// Equal / result logic
-function secondStepDivide(str: string): void {
-  let tmp = str;
+interface Value {
+  current: string;
+  second: string;
+  result: string;
 }
 
-// Divide operator logic
-function firstStepDivide(str: string): void {
-  if (!cadran.value.length) {
-    return;
-  } else {
-    let tmp = cadran.value;
-  }
+interface Operations {
+  [key: string]: boolean;
+  plus: boolean;
+  minus: boolean;
+  divide: boolean;
+  multiply: boolean;
 }
+
+const fieldValue: Value = {
+  current: "",
+  second: "",
+  result: "",
+};
+
+const operations: Operations = {
+  plus: false,
+  minus: false,
+  divide: false,
+  multiply: false,
+};
+
+function operation(value: string, property: string) {}
 
 // Click event logic
-const allValue = () => {
+const getValue = () => {
   allButton.forEach((element: HTMLElement) => {
     element.addEventListener("click", (event) => {
       event.preventDefault;
+
       switch (element.id) {
         // Numbers Buttons
         case "point":
-          if (cadran.value.length === 0) {
-            cadran.value += "0.";
+          if (cadran.value.includes(".")) {
+            return;
+          } else {
+            if (cadran.value.length === 0) {
+              cadran.value += "0.";
+            } else if (cadran.value.length > 0) {
+              cadran.value += ".";
+            }
           }
           break;
         case "random": // random number between 1 and 9
@@ -131,11 +155,116 @@ const allValue = () => {
           cadran.value = percent.toString();
           break;
         case "divide":
-          // divide(cadran.value);
+          if (!cadran.value.length) {
+            return;
+          }
+          fieldValue.current = cadran.value;
+          cadran.value = "";
+          operations.divide = true;
+          for (const key in operations) {
+            if (key !== "divide") {
+              operations[key] = false;
+            }
+          }
+          break;
+        case "multiply":
+          if (!cadran.value.length) {
+            return;
+          }
+          fieldValue.current = cadran.value;
+          cadran.value = "";
+          operations.multiply = true;
+          for (const key in operations) {
+            if (key !== "multiply") {
+              operations[key] = false;
+            }
+          }
+          break;
+        case "minus":
+          if (!cadran.value.length) {
+            return;
+          }
+          fieldValue.current = cadran.value;
+          cadran.value = "";
+          operations.minus = true;
+          for (const key in operations) {
+            if (key !== "minus") {
+              operations[key] = false;
+            }
+          }
+          break;
+        case "plus":
+          if (!cadran.value.length) {
+            return;
+          }
+          fieldValue.current = cadran.value;
+          cadran.value = "";
+          operations.plus = true;
+          for (const key in operations) {
+            if (key !== "plus") {
+              operations[key] = false;
+            }
+          }
           break;
       }
     });
   });
+
+  // Equal logic for (divide, multiply, addition, minus)
+  equal.addEventListener("click", (event) => {
+    event.preventDefault;
+
+    // Check if existing value
+    if (fieldValue.current.length > 0) {
+      fieldValue.second = cadran.value;
+
+      // Divide logic
+      if (operations.divide === true) {
+        if (parseFloat(fieldValue.second) !== 0) {
+          cadran.value = (
+            parseFloat(fieldValue.current) / parseFloat(fieldValue.second)
+          ).toString();
+          operations.divide = false;
+        } else {
+          cadran.value = "Error";
+        }
+
+        // Multiply logic
+      } else if (operations.multiply === true) {
+        if (parseFloat(fieldValue.second) !== 0) {
+          cadran.value = (
+            parseFloat(fieldValue.current) * parseFloat(fieldValue.second)
+          ).toString();
+          operations.multiply = false;
+        } else {
+          cadran.value = "Error";
+        }
+      }
+
+      // Plus logic
+      else if (operations.plus === true) {
+        if (parseFloat(fieldValue.second) !== 0) {
+          cadran.value = (
+            parseFloat(fieldValue.current) + parseFloat(fieldValue.second)
+          ).toString();
+          operations.plus = false;
+        } else {
+          cadran.value = "Error";
+        }
+
+        // Minus logic
+      } else if (operations.minus === true) {
+        if (parseFloat(fieldValue.second) !== 0) {
+          cadran.value = (
+            parseFloat(fieldValue.current) - parseFloat(fieldValue.second)
+          ).toString();
+          operations.minus = false;
+        } else {
+          cadran.value = "Error";
+        }
+      }
+    }
+  });
 };
 
-allValue();
+getValue();
