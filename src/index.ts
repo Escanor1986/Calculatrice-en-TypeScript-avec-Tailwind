@@ -1,7 +1,5 @@
 import "./style/style.css";
 
-// Diviser la logique valeur vs operation
-
 let cadran = document.getElementById("cadran") as HTMLInputElement; // Valeur affichée sur le cadran
 const allButton = document.querySelectorAll("button");
 const equal = document.getElementById("equal");
@@ -45,6 +43,7 @@ interface Operations {
   minus: boolean;
   divide: boolean;
   multiply: boolean;
+  interuptor: boolean;
 }
 
 const fieldValue: Value = {
@@ -58,15 +57,18 @@ const operations: Operations = {
   minus: false,
   divide: false,
   multiply: false,
+  interuptor: false,
 };
-
-function operation(value: string, property: string) {}
 
 // Click event logic
 const getValue = () => {
   allButton.forEach((element: HTMLElement) => {
     element.addEventListener("click", (event) => {
       event.preventDefault;
+
+      if (element.id === "equal") {
+        operations.interuptor = false; // Out of Equal Loop
+      }
 
       switch (element.id) {
         // Numbers Buttons
@@ -209,10 +211,22 @@ const getValue = () => {
       }
     });
   });
+};
 
-  // Equal logic for (divide, multiply, addition, minus)
+// Equal logic for (divide, multiply, addition, minus)
+const equalClick = () => {
   equal.addEventListener("click", (event) => {
     event.preventDefault;
+
+    operations.interuptor = true;
+
+    if (!operations.interuptor) {
+      for (const key in operations) {
+        if (key !== "interuptor") {
+          operations[key] = false;
+        }
+      }
+    }
 
     // Check if existing value
     if (fieldValue.current.length > 0) {
@@ -224,7 +238,6 @@ const getValue = () => {
           cadran.value = (
             parseFloat(fieldValue.current) / parseFloat(fieldValue.second)
           ).toString();
-          operations.divide = false;
         } else {
           cadran.value = "Error";
         }
@@ -235,7 +248,6 @@ const getValue = () => {
           cadran.value = (
             parseFloat(fieldValue.current) * parseFloat(fieldValue.second)
           ).toString();
-          operations.multiply = false;
         } else {
           cadran.value = "Error";
         }
@@ -247,7 +259,6 @@ const getValue = () => {
           cadran.value = (
             parseFloat(fieldValue.current) + parseFloat(fieldValue.second)
           ).toString();
-          operations.plus = false;
         } else {
           cadran.value = "Error";
         }
@@ -258,7 +269,6 @@ const getValue = () => {
           cadran.value = (
             parseFloat(fieldValue.current) - parseFloat(fieldValue.second)
           ).toString();
-          operations.minus = false;
         } else {
           cadran.value = "Error";
         }
@@ -268,3 +278,4 @@ const getValue = () => {
 };
 
 getValue();
+equalClick();
