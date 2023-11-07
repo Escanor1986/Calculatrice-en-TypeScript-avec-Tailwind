@@ -1,7 +1,8 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const ESLintPlugin = require("eslint-webpack-plugin"); // Importez ESLintPlugin
+const ESLintPlugin = require("eslint-webpack-plugin");
+const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
 
 module.exports = {
   entry: path.resolve(__dirname, "src/index.ts"),
@@ -13,7 +14,7 @@ module.exports = {
         exclude: /node_modules/,
       },
       {
-        test: /\.js$/, // Applique ESLint aux fichiers JavaScript
+        test: /\.js/, // Applique ESLint aux fichiers JavaScript
         enforce: "pre", // Exécute ESLint avant les loaders principaux
         exclude: /node_modules/,
         use: ["eslint-loader"],
@@ -39,7 +40,29 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: "output.css",
     }),
-    new ESLintPlugin(), // Ajoutez ESLintPlugin ici
+    new ESLintPlugin(),
+    new FaviconsWebpackPlugin({
+      logo: "./public/favicon.png",
+      favicons: {
+        appName: "Calculatrice",
+        appShortName: "Calculatrice",
+        appDescription: "Calculatrice tailwind / TypeScript",
+        developerName: "Escanor",
+        developerURL: null,
+        background: "#ffffff",
+        theme_color: "#ffffff",
+        icons: {
+          android: false,
+          appleIcon: false,
+          appleStartup: false,
+          coast: false,
+          favicons: true,
+          firefox: false,
+          windows: false,
+          yandex: false,
+        },
+      },
+    }),
   ],
   stats: "minimal",
   devtool: "source-map",
