@@ -1,5 +1,8 @@
 import "./style/style.css";
 
+import { Value } from './types'
+
+
 let cadran = document.getElementById("cadran") as HTMLInputElement; // Valeur affichée sur le cadran
 const allButton = document.querySelectorAll("button");
 const equal = document.getElementById("equal");
@@ -29,12 +32,6 @@ function changeSign(str: string): void {
     document.getElementById("cadran").classList.remove("text-red-500");
     document.getElementById("cadran").classList.add("text-blue-500");
   }
-}
-
-interface Value {
-  current: string;
-  second: string;
-  result: string;
 }
 
 interface Operations {
