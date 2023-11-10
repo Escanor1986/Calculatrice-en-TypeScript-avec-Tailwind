@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "vitest",
+    "test": "vitest --config ./vitest.config.ts",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "start": "webpack serve",
     "build": "webpack --mode production"
@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/jsdom": "^21.1.5",
     "@typescript-eslint/eslint-plugin": "^6.9.0",
     "@typescript-eslint/parser": "^6.9.0",
     "autoprefixer": "^10.4.16",
@@ -22,6 +23,8 @@
     "favicons": "^7.1.4",
     "favicons-webpack-plugin": "^6.0.1",
     "html-webpack-plugin": "^5.5.3",
+    "jsdom": "^22.1.0",
+    "jsdom-global": "^3.0.2",
     "postcss": "^8.4.31",
     "postcss-cli": "^10.1.0",
     "postcss-loader": "^7.3.3",

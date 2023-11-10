@@ -1,4 +1,3 @@
-// Sign changing logic
 export function changeSign(cadran: HTMLInputElement): void {
   if (cadran.value.length > 0 && !cadran.value.startsWith("-")) {
     if (parseFloat(cadran.value) >= 0) {
@@ -16,7 +15,6 @@ export function changeSign(cadran: HTMLInputElement): void {
   }
 }
 
-// Point logic
 export function point(cadran: HTMLInputElement): void {
   if (cadran.value.includes(".")) {
     return;
