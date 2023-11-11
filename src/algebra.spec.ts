@@ -1,19 +1,38 @@
-import { describe, it, expect, suite, test } from "vitest";
+// propriété "globals" set à true pour éviter l'import ci-dessous...
+// import { describe, it, expect, suite, test } from "vitest";
 
-import { baseSquare } from "./types/algebra";
+import { baseSquare, factorial, divide } from "./types/algebra";
+import { operations } from "./types/result";
+import * as interfaces from "./types/interfaces";
 
-suite("baseSquare", (test) => {
-  test("devrait retourner le carré de la valeur fournie", () => {
-    const inputElement = document.createElement("input");
+describe("algebra", () => {
+  const cadran = document.createElement("input") as HTMLInputElement;
 
-    inputElement.value = "5";
+  test("BaseSquare devrait retourner le carré de la valeur fournie", () => {
+    cadran.value = "4";
+    baseSquare(cadran);
+    expect(cadran.value).toBe("16");
+  });
 
-    baseSquare(inputElement);
+  test("Factorial devrait retourner la factorielle de la valeur fournie dans l'input", () => {
+    cadran.value = "4";
+    factorial(cadran);
+    expect(cadran.value).toBe("24");
+  });
 
-    if (inputElement.value !== "25") {
-      throw new Error(
-        "La valeur de l'élément input n'a pas été mise à jour correctement.",
-      );
+  test('divide devrait enregistrer la valeur actuelle de l\'input, \n la réinitialiser à "", \n set la propriété opérationnelle divide à true, \n et la valeur de [key] à false', () => {
+    cadran.value = "4";
+    divide(cadran);
+    expect(interfaces.fieldValue.current).toBe("4");
+    expect(cadran.value).toBe("");
+    expect(interfaces.operations.divide).toBe(true);
+
+    for (const key in interfaces.operations) {
+      if (key !== "divide") {
+        expect(interfaces.operations[key]).toBe(false);
+      }
     }
   });
+
+  // Reste le click sur "equal" à tester
 });
