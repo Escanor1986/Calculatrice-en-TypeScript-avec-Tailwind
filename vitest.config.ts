@@ -1,11 +1,9 @@
-import type { UserConfig } from "vitest/config";
-import CustomEnvironment from "./custom-environment.js";
+import { defineConfig } from "vitest/config";
 
-const config: UserConfig = {
+export default defineConfig({
   test: {
-    environment: CustomEnvironment,
+    include: ["src/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}"],
     globals: true,
+    environment: "jsdom",
   },
-};
-
-export default config;
+});
