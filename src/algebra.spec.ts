@@ -2,7 +2,7 @@
 // import { describe, it, expect, suite, test } from "vitest";
 
 import { baseSquare, factorial, divide } from "./types/algebra";
-import { operations } from "./types/result";
+// import { operations } from "./types/result";
 import * as interfaces from "./types/interfaces";
 
 describe("algebra", () => {

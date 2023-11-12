@@ -9,170 +9,189 @@
       rel="stylesheet"
     /> -->
   </head>
-  <body class="bg-blue-500 font-sans text-blue-700">
-    <h1 class="py-8 text-center text-3xl font-bold text-orange-400 underline">
-      Calculatrice
-    </h1>
+  <body class="bg-custom-color font-sans text-white">
+    <main class="mx-auto max-w-lg">
+      <section class="flex items-center justify-between py-8" id="header">
+        <h1 class="font-bold text-white">calc</h1>
+        <div class="flex items-center">
+          <label for="theme" class="ml-3 px-7 text-white">THEME</label>
+          <div class="flex flex-col items-end">
+            <div class="mb-1 flex w-24 justify-between">
+              <span class="text-xs text-white">1</span>
+              <span class="text-xs text-white">2</span>
+              <span class="text-xs text-white">3</span>
+            </div>
+            <input
+              type="range"
+              id="theme"
+              name="theme"
+              min="1"
+              max="3"
+              class="w-24 accent-red-500"
+            />
+          </div>
+        </div>
+      </section>
 
-    <main>
-      <div class="mx-auto max-w-lg rounded-lg bg-white p-6">
+      <section id="cadran-field">
         <label for="cadran"></label>
         <input
           id="cadran"
           name="cadran"
           type="text"
-          class="mb-4 w-full rounded-lg bg-gray-200 p-3 text-right text-3xl font-bold"
+          class="bg-cadran-color mx-auto mb-4 h-24 w-full max-w-lg rounded-lg p-3 text-right text-3xl font-bold"
           placeholder="0"
         />
-
+      </section>
+      <div class="bg-calculator-color mx-auto max-w-lg rounded-lg p-6">
         <div class="grid grid-cols-5 gap-2">
           <button
             id="square"
-            class="operations rounded-lg bg-gray-200 p-4 text-3xl font-bold text-gray-700 hover:bg-gray-300 focus:outline-none"
+            class="operations bg-button-color rounded-lg p-4 text-3xl font-bold text-gray-700 hover:bg-gray-300 focus:outline-none"
           >
             x²
           </button>
           <button
             id="reset"
-            class="values rounded-lg bg-gray-200 p-4 text-3xl font-bold text-gray-700 hover:bg-gray-300 focus:outline-none"
+            class="values bg-reset-del-color rounded-lg p-4 text-3xl font-bold text-white hover:bg-gray-300 focus:outline-none"
           >
             AC
           </button>
           <button
             id="changeSign"
-            class="values rounded-lg bg-gray-200 p-4 text-3xl font-bold text-gray-700 hover:bg-gray-300 focus:outline-none"
+            class="values bg-button-color rounded-lg p-4 text-3xl font-bold text-gray-700 hover:bg-gray-300 focus:outline-none"
           >
             +/-
           </button>
           <button
             id="percent"
-            class="operations rounded-lg bg-gray-200 p-4 text-3xl font-bold text-gray-700 hover:bg-gray-300 focus:outline-none"
+            class="operations bg-button-color rounded-lg p-4 text-3xl font-bold text-gray-700 hover:bg-gray-300 focus:outline-none"
           >
             %
           </button>
           <button
             id="divide"
-            class="operations rounded-lg bg-gray-200 p-4 text-3xl font-bold text-gray-700 hover:bg-gray-300 focus:outline-none"
+            class="operations bg-button-color rounded-lg p-4 text-3xl font-bold text-gray-700 hover:bg-gray-300 focus:outline-none"
           >
             /
           </button>
           <button
             id="squareRoot"
-            class="operations rounded-lg bg-gray-200 p-4 text-3xl font-bold text-gray-700 hover:bg-gray-300 focus:outline-none"
+            class="operations bg-button-color rounded-lg p-4 text-3xl font-bold text-gray-700 hover:bg-gray-300 focus:outline-none"
           >
             √x
           </button>
           <button
             id="seven"
-            class="values rounded-lg bg-gray-200 p-4 text-3xl font-bold text-gray-700 hover:bg-gray-300 focus:outline-none"
+            class="values bg-button-color rounded-lg p-4 text-3xl font-bold text-gray-700 hover:bg-gray-300 focus:outline-none"
           >
             7
           </button>
           <button
             id="eight"
-            class="values rounded-lg bg-gray-200 p-4 text-3xl font-bold text-gray-700 hover:bg-gray-300 focus:outline-none"
+            class="values bg-button-color rounded-lg p-4 text-3xl font-bold text-gray-700 hover:bg-gray-300 focus:outline-none"
           >
             8
           </button>
           <button
             id="nine"
-            class="values rounded-lg bg-gray-200 p-4 text-3xl font-bold text-gray-700 hover:bg-gray-300 focus:outline-none"
+            class="values bg-button-color rounded-lg p-4 text-3xl font-bold text-gray-700 hover:bg-gray-300 focus:outline-none"
           >
             9
           </button>
           <button
             id="multiply"
-            class="operations rounded-lg bg-gray-200 p-4 text-3xl font-bold text-gray-700 hover:bg-gray-300 focus:outline-none"
+            class="operations bg-button-color rounded-lg p-4 text-3xl font-bold text-gray-700 hover:bg-gray-300 focus:outline-none"
           >
             x
           </button>
           <button
             id="cube"
-            class="operations rounded-lg bg-gray-200 p-4 text-3xl font-bold text-gray-700 hover:bg-gray-300 focus:outline-none"
+            class="operations bg-button-color rounded-lg p-4 text-3xl font-bold text-gray-700 hover:bg-gray-300 focus:outline-none"
           >
             x³
           </button>
           <button
             id="four"
-            class="values rounded-lg bg-gray-200 p-4 text-3xl font-bold text-gray-700 hover:bg-gray-300 focus:outline-none"
+            class="values bg-button-color rounded-lg p-4 text-3xl font-bold text-gray-700 hover:bg-gray-300 focus:outline-none"
           >
             4
           </button>
           <button
             id="five"
-            class="values rounded-lg bg-gray-200 p-4 text-3xl font-bold text-gray-700 hover:bg-gray-300 focus:outline-none"
+            class="values bg-button-color rounded-lg p-4 text-3xl font-bold text-gray-700 hover:bg-gray-300 focus:outline-none"
           >
             5
           </button>
           <button
             id="six"
-            class="values rounded-lg bg-gray-200 p-4 text-3xl font-bold text-gray-700 hover:bg-gray-300 focus:outline-none"
+            class="values bg-button-color rounded-lg p-4 text-3xl font-bold text-gray-700 hover:bg-gray-300 focus:outline-none"
           >
             6
           </button>
           <button
             id="minus"
-            class="operations rounded-lg bg-gray-200 p-4 text-3xl font-bold text-gray-700 hover:bg-gray-300 focus:outline-none"
+            class="operations bg-button-color rounded-lg p-4 text-3xl font-bold text-gray-700 hover:bg-gray-300 focus:outline-none"
           >
             -
           </button>
           <button
             id="cubeRoot"
-            class="operations rounded-lg bg-gray-200 p-4 text-3xl font-bold text-gray-700 hover:bg-gray-300 focus:outline-none"
+            class="operations bg-button-color rounded-lg p-4 text-3xl font-bold text-gray-700 hover:bg-gray-300 focus:outline-none"
           >
             ³√x
           </button>
           <button
             id="one"
-            class="values rounded-lg bg-gray-200 p-4 text-3xl font-bold text-gray-700 hover:bg-gray-300 focus:outline-none"
+            class="values bg-button-color rounded-lg p-4 text-3xl font-bold text-gray-700 hover:bg-gray-300 focus:outline-none"
           >
             1
           </button>
           <button
             id="two"
-            class="values rounded-lg bg-gray-200 p-4 text-3xl font-bold text-gray-700 hover:bg-gray-300 focus:outline-none"
+            class="values bg-button-color rounded-lg p-4 text-3xl font-bold text-gray-700 hover:bg-gray-300 focus:outline-none"
           >
             2
           </button>
           <button
             id="three"
-            class="values rounded-lg bg-gray-200 p-4 text-3xl font-bold text-gray-700 hover:bg-gray-300 focus:outline-none"
+            class="values bg-button-color rounded-lg p-4 text-3xl font-bold text-gray-700 hover:bg-gray-300 focus:outline-none"
           >
             3
           </button>
           <button
             id="plus"
-            class="operations rounded-lg bg-gray-200 p-4 text-3xl font-bold text-gray-700 hover:bg-gray-300 focus:outline-none"
+            class="operations bg-button-color rounded-lg p-4 text-3xl font-bold text-gray-700 hover:bg-gray-300 focus:outline-none"
           >
             +
           </button>
           <button
             id="factorial"
-            class="operations rounded-lg bg-gray-200 p-4 text-3xl font-bold text-gray-700 hover:bg-gray-300 focus:outline-none"
+            class="operations bg-button-color rounded-lg p-4 text-3xl font-bold text-gray-700 hover:bg-gray-300 focus:outline-none"
           >
             x!
           </button>
           <button
             id="zero"
-            class="values rounded-lg bg-gray-200 p-4 text-3xl font-bold text-gray-700 hover:bg-gray-300 focus:outline-none"
+            class="values bg-button-color rounded-lg p-4 text-3xl font-bold text-gray-700 hover:bg-gray-300 focus:outline-none"
           >
             0
           </button>
           <button
             id="random"
-            class="values rounded-lg bg-gray-200 p-4 text-3xl font-bold text-gray-700 hover:bg-gray-300 focus:outline-none"
+            class="values bg-reset-del-color rounded-lg p-4 text-3xl font-bold text-white hover:bg-gray-300 focus:outline-none"
           >
             ?
           </button>
           <button
             id="point"
-            class="values rounded-lg bg-gray-200 p-4 text-3xl font-bold text-gray-700 hover:bg-gray-300 focus:outline-none"
+            class="values bg-button-color rounded-lg p-4 text-3xl font-bold text-gray-700 hover:bg-gray-300 focus:outline-none"
           >
             .
           </button>
           <button
             id="equal"
-            class="operations rounded-lg bg-gray-200 p-4 text-3xl font-bold text-gray-700 hover:bg-gray-300 focus:outline-none"
+            class="operations bg-equal-color rounded-lg p-4 text-3xl font-bold text-white hover:bg-gray-300 focus:outline-none"
           >
             =
           </button>
