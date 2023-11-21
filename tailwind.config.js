@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  mode: "jit", // "just in time" gestion dynamique des classes de couleurs
   content: ["./src/**/*.{html,js,ts,jsx,tsx}", "./dist/**/*.html"],
   theme: {
     extend: {

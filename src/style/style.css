@@ -3,4 +3,22 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-/* Ajoutez vos styles personnalisés ici */
+/* styles personnalisés */
+
+.theme-1 {
+  /* Style d'origine depuis tailwind config */
+  --bg-color: theme(colors.custom-color);
+  --cadran-color: theme(colors.cadran-color);
+}
+
+.theme-2 {
+  /* autre style */
+  --bg-color: ;
+  --cadran-color: ;
+}
+
+.theme-3 {
+  /* autre style */
+  --bg-color: ;
+  --cadran-color: ;
+}

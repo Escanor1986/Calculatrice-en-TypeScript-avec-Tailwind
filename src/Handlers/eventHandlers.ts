@@ -9,11 +9,29 @@ const valuesButton = document.querySelectorAll(".values");
 const operationsButton = document.querySelectorAll(".operations");
 const equal = document.getElementById("equal");
 
+// Add comma to value for each group of three numbers
+export const commaValue = () => {
+  let cadranValue = cadran.value.replace(/,/g, ""); // Delete existing comma before couting
+  let formattedValue = cadranValue.replace(/\B(?=(\d{3})+(?!\d))/g, ","); // Regex to add comma every three numbers
+  cadran.value = formattedValue;
+};
+
+// Input logic
+export const showValue = () => {
+  cadran.addEventListener("input", (event) => {
+    event.preventDefault;
+
+    commaValue();
+  });
+};
+
 // Click event logic
 export const getValues = () => {
   valuesButton.forEach((element: HTMLElement) => {
     element.addEventListener("click", (event) => {
       event.preventDefault;
+
+      commaValue();
 
       if (element.id === "equal") {
         operations.interuptor = false; // Out of Equal Loop
@@ -110,6 +128,9 @@ export const makeOperations = () => {
           Algebra.plus(cadran);
           break;
       }
+
+      // Add comma to value
+      commaValue();
     });
   });
 };
@@ -118,6 +139,8 @@ export const makeOperations = () => {
 export const equalClick = () => {
   equal.addEventListener("click", (event) => {
     event.preventDefault;
+
+    commaValue();
 
     operations.interuptor = true;
 
