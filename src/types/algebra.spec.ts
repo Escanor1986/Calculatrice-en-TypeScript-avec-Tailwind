@@ -1,26 +1,26 @@
 // propriété "globals" set à true pour éviter l'import ci-dessous...
 // import { describe, it, expect, suite, test } from "vitest";
 
-import { baseSquare, factorial, divide } from "./types/algebra";
+import { baseSquare, factorial, divide } from "./algebra";
 // import { operations } from "./types/result";
-import * as interfaces from "./types/interfaces";
+import * as interfaces from "./interfaces";
 
-describe("algebra", () => {
+describe("Algebra Unit Test Suites", () => {
   const cadran = document.createElement("input") as HTMLInputElement;
 
-  test("BaseSquare devrait retourner le carré de la valeur fournie", () => {
+  it("should return the square of 4 (16)", () => {
     cadran.value = "4";
     baseSquare(cadran);
     expect(cadran.value).toBe("16");
   });
 
-  test("Factorial devrait retourner la factorielle de la valeur fournie dans l'input", () => {
+  it("should return the factoriel of 4 (24)", () => {
     cadran.value = "4";
     factorial(cadran);
     expect(cadran.value).toBe("24");
   });
 
-  test('divide devrait enregistrer la valeur actuelle de l\'input, \n la réinitialiser à "", \n set la propriété opérationnelle divide à true, \n et la valeur de [key] à false', () => {
+  it('divide devrait enregistrer la valeur actuelle de l\'input, \n la réinitialiser à "", \n set la propriété opérationnelle divide à true, \n et la valeur de [key] à false', () => {
     cadran.value = "4";
     divide(cadran);
     expect(interfaces.fieldValue.current).toBe("4");

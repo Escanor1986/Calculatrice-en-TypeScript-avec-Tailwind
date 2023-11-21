@@ -51,9 +51,11 @@ export function divide(cadran: HTMLInputElement): void {
   if (!cadran.value.length) {
     return;
   }
+  
   fieldValue.current = cadran.value;
   cadran.value = "";
   operations.divide = true;
+
   for (const key in operations) {
     if (key !== "divide") {
       operations[key] = false;
