@@ -7,18 +7,33 @@
 
 .theme-1 {
   /* Style d'origine depuis tailwind config */
-  --bg-color: theme(colors.custom-color);
+  --custom-text-color: theme(colors.custom-text-color);
+  --custom-color: theme(colors.custom-color);
   --cadran-color: theme(colors.cadran-color);
+  --calculator-color: theme(colors.calculator-color);
+  --equal-color: theme(colors.equal-color);
+  --reset-del-color: theme(colors.reset-del-color);
+  --button-color: theme(colors.button-color);
 }
 
 .theme-2 {
   /* autre style */
-  --bg-color: ;
-  --cadran-color: ;
+  --custom-text-color: #28281d;
+  --custom-color: #e6e6e6;
+  --cadran-color: #eeeeee;
+  --calculator-color: #d3cdce;
+  --equal-color: #c85301;
+  --reset-del-color: #378287;
+  --button-color: #e5e4e0;
 }
 
 .theme-3 {
   /* autre style */
-  --bg-color: ;
-  --cadran-color: ;
+  --custom-text-color: #ffe73c;
+  --custom-color: #170829;
+  --cadran-color: #1e0936;
+  --calculator-color: #1e0936;
+  --equal-color: #06decf;
+  --reset-del-color: #56077b;
+  --button-color: #331b4d;
 }

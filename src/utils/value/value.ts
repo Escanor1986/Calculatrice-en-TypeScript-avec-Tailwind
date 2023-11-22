@@ -1,3 +1,4 @@
+// tester la fonction
 export function changeSign(cadran: HTMLInputElement): void {
   if (cadran.value.length > 0 && !cadran.value.startsWith("-")) {
     if (parseFloat(cadran.value) >= 0) {

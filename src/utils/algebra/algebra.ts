@@ -1,4 +1,4 @@
-import { fieldValue, operations } from "./interfaces";
+import { fieldValue, operations } from "../types/interfaces";
 
 // Factorial Logic
 export function factorial(cadran: HTMLInputElement): void {
@@ -47,60 +47,33 @@ export function percent(cadran: HTMLInputElement): void {
   cadran.value = percent.toString();
 }
 
-export function divide(cadran: HTMLInputElement): void {
-  if (!cadran.value.length) {
-    return;
-  }
-  
+function prepareOperation(
+  cadran: HTMLInputElement,
+  operation: keyof typeof operations,
+): void {
+  if (!cadran.value.length) return;
+
   fieldValue.current = cadran.value;
   cadran.value = "";
-  operations.divide = true;
 
   for (const key in operations) {
-    if (key !== "divide") {
-      operations[key] = false;
-    }
+    operations[key] = false;
   }
+  operations[operation] = true;
+}
+
+export function divide(cadran: HTMLInputElement): void {
+  prepareOperation(cadran, "divide");
 }
 
 export function multiply(cadran: HTMLInputElement): void {
-  if (!cadran.value.length) {
-    return;
-  }
-  fieldValue.current = cadran.value;
-  cadran.value = "";
-  operations.multiply = true;
-  for (const key in operations) {
-    if (key !== "multiply") {
-      operations[key] = false;
-    }
-  }
+  prepareOperation(cadran, "multiply");
 }
 
 export function minus(cadran: HTMLInputElement): void {
-  if (!cadran.value.length) {
-    return;
-  }
-  fieldValue.current = cadran.value;
-  cadran.value = "";
-  operations.minus = true;
-  for (const key in operations) {
-    if (key !== "minus") {
-      operations[key] = false;
-    }
-  }
+  prepareOperation(cadran, "minus");
 }
 
 export function plus(cadran: HTMLInputElement): void {
-  if (!cadran.value.length) {
-    return;
-  }
-  fieldValue.current = cadran.value;
-  cadran.value = "";
-  operations.plus = true;
-  for (const key in operations) {
-    if (key !== "plus") {
-      operations[key] = false;
-    }
-  }
+  prepareOperation(cadran, "plus");
 }

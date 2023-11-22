@@ -1,7 +1,7 @@
-import * as Algebra from "../types/algebra";
-import * as Value from "../types/value";
-import * as Result from "../types/result";
-import { fieldValue, operations } from "../types/interfaces";
+import * as Algebra from "../utils/algebra/algebra";
+import * as Value from "../utils/value/value";
+import * as Result from "../utils/result/result";
+import { fieldValue, operations } from "../utils/types/interfaces";
 
 let cadran = document.getElementById("cadran") as HTMLInputElement;
 
