@@ -11,9 +11,13 @@ const equal = document.getElementById("equal");
 
 // Add comma to value for each group of three numbers
 export const commaValue = () => {
-  let cadranValue = cadran.value.replace(/,/g, ""); // Delete existing comma before couting
+  let cadranValue = cadran.value.replace(/,/g, ""); // Delete existing comma before counting
   let formattedValue = cadranValue.replace(/\B(?=(\d{3})+(?!\d))/g, ","); // Regex to add comma every three numbers
-  cadran.value = formattedValue;
+
+  // No comma under value 1
+  if (parseFloat(cadran.value) > 1) {
+    cadran.value = formattedValue;
+  }
 };
 
 // Input logic
@@ -46,7 +50,7 @@ export const getValues = () => {
           Value.changeSign(cadran);
           break;
         case "reset":
-          cadran.value = "";
+          Value.reset(cadran);
           break;
         case "zero":
           cadran.value += "0";
@@ -140,21 +144,14 @@ export const equalClick = () => {
   equal.addEventListener("click", (event) => {
     event.preventDefault();
 
-    operations.interuptor = true;
-
-    if (!operations.interuptor) {
-      for (const key in operations) {
-        if (key !== "interuptor") {
-          operations[key] = false;
-        }
-      }
+    // if NO active operation, initialisation of fieldValue.second
+    if (!fieldValue.second) {
+      fieldValue.second = cadran.value;
     }
 
-    // Check if existing value
-    if (fieldValue.current.length > 0) {
-      fieldValue.second = cadran.value;
-
-      Result.operation(cadran);
+    if (fieldValue.current.length > 0 && fieldValue.second.length > 0) {
+      Result.operation(cadran); // Effectue l'opération en cours
+      fieldValue.current = cadran.value; // update of current value with the result of next operation
     }
 
     commaValue();

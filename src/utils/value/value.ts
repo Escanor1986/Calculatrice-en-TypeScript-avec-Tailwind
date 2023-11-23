@@ -1,4 +1,5 @@
-// tester la fonction
+import { fieldValue, operations } from "../types/interfaces";
+
 export function changeSign(cadran: HTMLInputElement): void {
   if (cadran.value.length > 0 && !cadran.value.startsWith("-")) {
     if (parseFloat(cadran.value) >= 0) {
@@ -31,4 +32,14 @@ export function point(cadran: HTMLInputElement): void {
 export function randomValue(cadran: HTMLInputElement): void {
   let randomNumber: number = Math.floor(Math.random() * 10);
   cadran.value = cadran.value + randomNumber.toString();
+}
+
+export function reset(cadran: HTMLInputElement): void {
+  cadran.value = "";
+  fieldValue.current = "";
+  fieldValue.second = "";
+  for (const key in operations) {
+    operations[key] = false;
+  }
+  cadran.classList.remove("text-red-500", "text-blue-500");
 }
