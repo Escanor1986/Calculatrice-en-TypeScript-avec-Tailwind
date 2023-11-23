@@ -1,6 +1,8 @@
 export const changeTheme = (): void => {
   const themeInput = document.getElementById("theme") as HTMLInputElement;
 
+  applyTheme(themeInput.value || "3");
+
   themeInput.addEventListener("input", () => {
     const value = themeInput.value;
     applyTheme(value);

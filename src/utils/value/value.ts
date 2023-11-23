@@ -5,6 +5,7 @@ export function changeSign(cadran: HTMLInputElement): void {
     if (parseFloat(cadran.value) >= 0) {
       cadran.value = "-" + cadran.value;
       document.getElementById("cadran").classList.add("text-red-500");
+      document.getElementById("cadran").classList.remove("text-blue-500");
     }
   } else if (cadran.value.length === 0) {
     cadran.value = "-";

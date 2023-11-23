@@ -12,7 +12,10 @@ describe("changeSign function", () => {
 
   it("should prefix the input value with a negative sign if it's positive", () => {
     cadran.value = "5";
+    console.log(cadran.classList.value);
     changeSign(cadran);
+    console.log(cadran.classList.value);
+
     expect(cadran.value).toBe("-5");
     expect(cadran.classList.contains("text-red-500")).toBe(true);
     expect(cadran.classList.contains("text-blue-500")).toBe(false);
