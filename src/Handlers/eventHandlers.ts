@@ -19,7 +19,7 @@ export const commaValue = () => {
 // Input logic
 export const showValue = () => {
   cadran.addEventListener("input", (event) => {
-    event.preventDefault;
+    event.preventDefault();
 
     commaValue();
   });
@@ -29,9 +29,7 @@ export const showValue = () => {
 export const getValues = () => {
   valuesButton.forEach((element: HTMLElement) => {
     element.addEventListener("click", (event) => {
-      event.preventDefault;
-
-      commaValue();
+      event.preventDefault();
 
       if (element.id === "equal") {
         operations.interuptor = false; // Out of Equal Loop
@@ -81,6 +79,8 @@ export const getValues = () => {
           cadran.value += "9";
           break;
       }
+
+      commaValue();
     });
   });
 };
@@ -89,7 +89,7 @@ export const getValues = () => {
 export const makeOperations = () => {
   operationsButton.forEach((element: HTMLElement) => {
     element.addEventListener("click", (event) => {
-      event.preventDefault;
+      event.preventDefault();
 
       if (element.id === "equal") {
         operations.interuptor = false; // Out of Equal Loop
@@ -138,9 +138,7 @@ export const makeOperations = () => {
 // Equal logic for (divide, multiply, addition, minus)
 export const equalClick = () => {
   equal.addEventListener("click", (event) => {
-    event.preventDefault;
-
-    commaValue();
+    event.preventDefault();
 
     operations.interuptor = true;
 
@@ -158,5 +156,7 @@ export const equalClick = () => {
 
       Result.operation(cadran);
     }
+
+    commaValue();
   });
 };

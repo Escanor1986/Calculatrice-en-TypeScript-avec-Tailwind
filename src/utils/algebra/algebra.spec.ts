@@ -1,27 +1,35 @@
-// propriété "globals" set à true pour éviter l'import ci-dessous...
-// import { describe, it, expect, suite, test } from "vitest";
-
-import { baseSquare, factorial, divide } from "./algebra";
-// import { operations } from "./types/result";
+import { describe, it, expect } from "vitest";
+import {
+  baseSquare,
+  factorial,
+  divide,
+  multiply,
+  minus,
+  plus,
+} from "./algebra";
 import * as interfaces from "../types/interfaces";
 
-// refactoriser ==> fr -> en, it (au lieu de test)
-describe("algebra", () => {
-  const cadran = document.createElement("input") as HTMLInputElement;
+describe("Algebra operations", () => {
+  let cadran: HTMLInputElement;
 
-  test("BaseSquare devrait retourner le carré de la valeur fournie", () => {
+  beforeEach(() => {
+    // For initialisation of "cadran" before each test (it)
+    cadran = document.createElement("input");
+  });
+
+  it("baseSquare should return the square of the provided value", () => {
     cadran.value = "4";
     baseSquare(cadran);
     expect(cadran.value).toBe("16");
   });
 
-  test("Factorial devrait retourner la factorielle de la valeur fournie dans l'input", () => {
+  it("factorial should return the factorial of the input value", () => {
     cadran.value = "4";
     factorial(cadran);
     expect(cadran.value).toBe("24");
   });
 
-  test('divide devrait enregistrer la valeur actuelle de l\'input, \n la réinitialiser à "", \n set la propriété opérationnelle divide à true, \n et la valeur de [key] à false', () => {
+  it("divide should set the current input value, reset it, set the divide operation to true, and all other operations to false", () => {
     cadran.value = "4";
     divide(cadran);
     expect(interfaces.fieldValue.current).toBe("4");
@@ -34,6 +42,4 @@ describe("algebra", () => {
       }
     }
   });
-
-  // Reste le click sur "equal" à tester
 });

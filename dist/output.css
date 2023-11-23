@@ -420,11 +420,26 @@ video {
   margin-left: auto;
   margin-right: auto;
 }
+.mb-1 {
+  margin-bottom: 0.25rem;
+}
 .mb-4 {
   margin-bottom: 1rem;
 }
+.ml-3 {
+  margin-left: 0.75rem;
+}
+.flex {
+  display: flex;
+}
 .grid {
   display: grid;
+}
+.h-24 {
+  height: 6rem;
+}
+.w-24 {
+  width: 6rem;
 }
 .w-full {
   width: 100%;
@@ -435,15 +450,41 @@ video {
 .grid-cols-5 {
   grid-template-columns: repeat(5, minmax(0, 1fr));
 }
+.flex-col {
+  flex-direction: column;
+}
+.items-end {
+  align-items: flex-end;
+}
+.items-center {
+  align-items: center;
+}
+.justify-between {
+  justify-content: space-between;
+}
 .gap-2 {
   gap: 0.5rem;
 }
 .rounded-lg {
   border-radius: 0.5rem;
 }
-.bg-blue-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(59 130 246 / var(--tw-bg-opacity));
+.bg-\[var\(--button-color\)\] {
+  background-color: var(--button-color);
+}
+.bg-\[var\(--cadran-color\)\] {
+  background-color: var(--cadran-color);
+}
+.bg-\[var\(--calculator-color\)\] {
+  background-color: var(--calculator-color);
+}
+.bg-\[var\(--custom-color\)\] {
+  background-color: var(--custom-color);
+}
+.bg-\[var\(--equal-color\)\] {
+  background-color: var(--equal-color);
+}
+.bg-\[var\(--reset-del-color\)\] {
+  background-color: var(--reset-del-color);
 }
 .bg-cadran-color {
   --tw-bg-opacity: 1;
@@ -470,6 +511,10 @@ video {
 .p-6 {
   padding: 1.5rem;
 }
+.px-7 {
+  padding-left: 1.75rem;
+  padding-right: 1.75rem;
+}
 .py-8 {
   padding-top: 2rem;
   padding-bottom: 2rem;
@@ -487,16 +532,19 @@ video {
   font-size: 1.875rem;
   line-height: 2.25rem;
 }
+.text-xs {
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
 .font-bold {
   font-weight: 700;
+}
+.text-\[var\(--custom-text-color\)\] {
+  color: var(--custom-text-color);
 }
 .text-blue-500 {
   --tw-text-opacity: 1;
   color: rgb(59 130 246 / var(--tw-text-opacity));
-}
-.text-blue-700 {
-  --tw-text-opacity: 1;
-  color: rgb(29 78 216 / var(--tw-text-opacity));
 }
 .text-gray-700 {
   --tw-text-opacity: 1;
@@ -517,8 +565,44 @@ video {
 .underline {
   text-decoration-line: underline;
 }
+.accent-red-500 {
+  accent-color: #ef4444;
+}
 
-/* Ajoutez vos styles personnalisés ici */
+/* styles personnalisés */
+
+.theme-1 {
+  /* Style d'origine depuis tailwind config */
+  --custom-text-color: #EEEEEE;
+  --custom-color: #3B4664;
+  --cadran-color: #181E33;
+  --calculator-color: #252D44;
+  --equal-color: #D14031;
+  --reset-del-color: #647199;
+  --button-color: #E9E3DB;
+}
+
+.theme-2 {
+  /* autre style */
+  --custom-text-color: #28281d;
+  --custom-color: #e6e6e6;
+  --cadran-color: #eeeeee;
+  --calculator-color: #d3cdce;
+  --equal-color: #c85301;
+  --reset-del-color: #378287;
+  --button-color: #e5e4e0;
+}
+
+.theme-3 {
+  /* autre style */
+  --custom-text-color: #ffe73c;
+  --custom-color: #170829;
+  --cadran-color: #1e0936;
+  --calculator-color: #1e0936;
+  --equal-color: #06decf;
+  --reset-del-color: #56077b;
+  --button-color: #331b4d;
+}
 
 .hover\:bg-gray-300:hover {
   --tw-bg-opacity: 1;
