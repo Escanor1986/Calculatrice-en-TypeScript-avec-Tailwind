@@ -7,7 +7,7 @@
 
 .theme-1 {
   /* Style d'origine depuis tailwind config */
-  --custom-text-color: theme(colors.cadran-color);
+  --custom-text-color: theme(colors.custom-text-color);
   --custom-color: theme(colors.custom-color);
   --cadran-color: theme(colors.cadran-color);
   --calculator-color: theme(colors.calculator-color);
